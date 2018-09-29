@@ -13,6 +13,10 @@ spring:
       ddl-auto: update
     show-sql: true
 
+
+server:
+  servlet:
+    context-path: /sell
 #logging:
 #  pattern:
 #    console: "%d - %msg%n"
@@ -20,4 +24,5 @@ spring:
 #  file: /Users/zhangmengmeng/Documents/CodeResource/SpringBoot/log/sell.log
 ##  level: debug
 #  level:
+
 #    com.zmm.sell.LoggerTest: debug
