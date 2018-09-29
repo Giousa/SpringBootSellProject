@@ -46,8 +46,6 @@ public class BuyerProductController {
 
         List<ProductInfo> productInfoList = productServic.findUpAll();
 
-        log.error("productInfoList = {}",productInfoList);
-
         //查询类名，一次性查询
 //        List<Integer> categoryTypeList = new ArrayList<>();
         //传统方法
@@ -61,7 +59,6 @@ public class BuyerProductController {
 
         List<ProductCategory> productCategoryList = categoryService.findByType(categoryTypeList);
 
-        log.error("productCategoryList = {}",productCategoryList);
 
         List<ProductVO> productVOList = new ArrayList<>();
         //拼接
@@ -87,7 +84,6 @@ public class BuyerProductController {
             productVOList.add(productVO);
         }
 
-        log.error("productVOList = {}",productVOList);
 
 //        ResultVO resultVO = new ResultVO();
 //        resultVO.setCode(200);
