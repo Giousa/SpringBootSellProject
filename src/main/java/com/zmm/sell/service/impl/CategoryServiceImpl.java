@@ -3,6 +3,7 @@ package com.zmm.sell.service.impl;
 import com.zmm.sell.dataobject.ProductCategory;
 import com.zmm.sell.repository.ProductCategoryRepository;
 import com.zmm.sell.service.CategoryService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,6 +28,7 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public List<ProductCategory> findAll() {
+
         return repository.findAll();
     }
 

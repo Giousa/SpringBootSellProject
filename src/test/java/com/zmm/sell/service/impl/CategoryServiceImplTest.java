@@ -31,14 +31,14 @@ public class CategoryServiceImplTest {
     public void findOne() {
 
         ProductCategory productCategory = categoryService.findOne(1);
-        log.info("findOne : {}",productCategory);
+        log.error("findOne : {}",productCategory);
     }
 
     @Test
     public void findAll() {
         List<ProductCategory> productCategoryList = categoryService.findAll();
 
-        log.info("findAll : ",productCategoryList);
+        log.error("findAll : {}",productCategoryList);
     }
 
     @Test
@@ -46,7 +46,7 @@ public class CategoryServiceImplTest {
 
         List<ProductCategory> productCategoryList = categoryService.findByType(Arrays.asList(11, 22, 33));
 
-        log.info("findByType : ",productCategoryList);
+        log.error("findByType : {}",productCategoryList);
     }
 
     @Test
