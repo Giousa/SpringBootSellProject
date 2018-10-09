@@ -4,7 +4,7 @@ import com.zmm.sell.enums.OrderStatusEnum;
 import com.zmm.sell.enums.PayStatusEnum;
 import lombok.Data;
 import org.hibernate.annotations.DynamicUpdate;
-import org.springframework.data.annotation.Id;
+import javax.persistence.Id;
 
 import javax.persistence.Entity;
 import java.math.BigDecimal;

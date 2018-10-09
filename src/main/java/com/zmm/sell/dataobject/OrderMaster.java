@@ -4,11 +4,13 @@ import com.zmm.sell.enums.OrderStatusEnum;
 import com.zmm.sell.enums.PayStatusEnum;
 import lombok.Data;
 import org.hibernate.annotations.DynamicUpdate;
-import org.springframework.data.annotation.Id;
+import javax.persistence.Id;
 
 import javax.persistence.Entity;
+import javax.persistence.Transient;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Description:
@@ -41,5 +43,8 @@ public class OrderMaster {
     private Date createTime;
 
     private Date updateTime;
+
+//    @Transient
+//    private List<OrderDetail> orderDetailList;
 
 }

@@ -3,7 +3,7 @@ package com.zmm.sell.controller;
 import com.zmm.sell.dataobject.ProductCategory;
 import com.zmm.sell.dataobject.ProductInfo;
 import com.zmm.sell.service.CategoryService;
-import com.zmm.sell.service.ProductServic;
+import com.zmm.sell.service.ProductService;
 import com.zmm.sell.utils.ResultVOUtil;
 import com.zmm.sell.vo.ProductInfoVO;
 import com.zmm.sell.vo.ProductVO;
@@ -15,9 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -34,7 +32,7 @@ public class BuyerProductController {
 
 
     @Autowired
-    private ProductServic productServic;
+    private ProductService productServic;
 
     @Autowired
     private CategoryService categoryService;

@@ -25,7 +25,7 @@ import static org.junit.Assert.*;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @Slf4j
-public class ProductServicImplTest {
+public class ProductServiceImplTest {
 
     @Autowired
     private ProductServicImpl productServic;
