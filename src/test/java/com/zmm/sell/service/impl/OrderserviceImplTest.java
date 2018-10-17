@@ -90,7 +90,7 @@ public class OrderserviceImplTest {
 
         OrderDTO cancel = orderservice.cancel(orderDTO);
 
-        if(cancel.getOrderStatus().equals(OrderStatusEnum.CANCEL.getCode())){
+        if(cancel.getOrderStatus().equals(OrderStatusEnum.FINISHED.getCode())){
             log.info("【取消订单】成功");
         }else {
             log.info("【取消订单】失败");
@@ -101,9 +101,22 @@ public class OrderserviceImplTest {
 
     @Test
     public void finish() {
+
+        OrderDTO orderDTO = orderservice.findById("1539183163026453558");
+
+        OrderDTO finish = orderservice.finish(orderDTO);
+
+        System.out.println("finish.getOrderStatus() = "+finish.getOrderStatus());
+
     }
 
     @Test
     public void paid() {
+
+        OrderDTO orderDTO = orderservice.findById("1539183163026453558");
+
+        OrderDTO paid = orderservice.paid(orderDTO);
+
+        System.out.println("paid.getPayStatus() = "+paid.getPayStatus());
     }
 }
