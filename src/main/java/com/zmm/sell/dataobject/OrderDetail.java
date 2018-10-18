@@ -1,7 +1,9 @@
 package com.zmm.sell.dataobject;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.zmm.sell.enums.OrderStatusEnum;
 import com.zmm.sell.enums.PayStatusEnum;
+import com.zmm.sell.utils.serializer.Date2LongSerializer;
 import lombok.Data;
 import org.hibernate.annotations.DynamicUpdate;
 import javax.persistence.Id;
@@ -36,8 +38,10 @@ public class OrderDetail {
 
     private String productIcon;
 
+    @JsonSerialize(using = Date2LongSerializer.class)
     private Date createTime;
 
+    @JsonSerialize(using = Date2LongSerializer.class)
     private Date updateTime;
 
 }

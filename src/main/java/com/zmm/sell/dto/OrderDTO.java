@@ -1,5 +1,6 @@
 package com.zmm.sell.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.zmm.sell.dataobject.OrderDetail;
 import com.zmm.sell.utils.serializer.Date2LongSerializer;
@@ -16,6 +17,8 @@ import java.util.List;
  * Email:65489469@qq.com
  */
 @Data
+//@JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL)
+//@JsonInclude(JsonInclude.Include.NON_NULL)//若是null值，就不会返回
 public class OrderDTO {
 
     private String orderId;
