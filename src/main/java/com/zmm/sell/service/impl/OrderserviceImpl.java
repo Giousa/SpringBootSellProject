@@ -12,7 +12,7 @@ import com.zmm.sell.enums.ResultEnum;
 import com.zmm.sell.exception.SellException;
 import com.zmm.sell.repository.OrderDetailRepository;
 import com.zmm.sell.repository.OrderMasterRepository;
-import com.zmm.sell.service.Orderservice;
+import com.zmm.sell.service.OrderService;
 import com.zmm.sell.service.ProductService;
 import com.zmm.sell.utils.KeyUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -27,7 +27,6 @@ import org.springframework.util.CollectionUtils;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -39,7 +38,7 @@ import java.util.stream.Collectors;
  */
 @Service
 @Slf4j
-public class OrderserviceImpl implements Orderservice {
+public class OrderserviceImpl implements OrderService {
 
 
     @Autowired

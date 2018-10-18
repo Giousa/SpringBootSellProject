@@ -5,7 +5,8 @@ import com.zmm.sell.dto.OrderDTO;
 import com.zmm.sell.enums.ResultEnum;
 import com.zmm.sell.exception.SellException;
 import com.zmm.sell.form.OrderForm;
-import com.zmm.sell.service.Orderservice;
+import com.zmm.sell.service.BuyerService;
+import com.zmm.sell.service.OrderService;
 import com.zmm.sell.utils.ResultVOUtil;
 import com.zmm.sell.vo.ResultVO;
 import lombok.extern.slf4j.Slf4j;
@@ -34,7 +35,10 @@ import java.util.Map;
 public class BuyerOrderController {
 
     @Autowired
-    private Orderservice orderservice;
+    private OrderService orderService;
+
+    @Autowired
+    private BuyerService buyerService;
 
     //创建订单
     @PostMapping("/create")
@@ -52,7 +56,7 @@ public class BuyerOrderController {
             throw new SellException(ResultEnum.CART_EMPTY);
         }
 
-        OrderDTO orderDTOResult = orderservice.create(orderDTO);
+        OrderDTO orderDTOResult = orderService.create(orderDTO);
 
         Map<String,String> map = new HashMap<>();
         map.put("orderId",orderDTOResult.getOrderId());
@@ -72,7 +76,7 @@ public class BuyerOrderController {
             throw new SellException(ResultEnum.PARAM_ERROR);
         }
 
-        Page<OrderDTO> list = orderservice.findList(openid, new PageRequest(page, size));
+        Page<OrderDTO> list = orderService.findList(openid, new PageRequest(page, size));
 
         return ResultVOUtil.success(list.getContent());
     }
@@ -80,10 +84,10 @@ public class BuyerOrderController {
     //订单详情
 
     @GetMapping("/detail")
-    public ResultVO<OrderDTO> detail(@RequestParam("orderId") String orderId){
+    public ResultVO<OrderDTO> detail(@RequestParam("orderId") String orderId,
+                                     @RequestParam("openid") String openid){
 
-        //TODO 不安全的做法，待改进
-        OrderDTO orderDTO = orderservice.findById(orderId);
+        OrderDTO orderDTO = buyerService.findOrderOne(openid, orderId);
 
         return ResultVOUtil.success(orderDTO);
 
@@ -91,9 +95,10 @@ public class BuyerOrderController {
 
     //取消订单
     @GetMapping("/cancel")
-    public ResultVO cancel(@RequestParam("orderId") String orderId){
+    public ResultVO cancel(@RequestParam("orderId") String orderId,
+                           @RequestParam("openid") String openid){
 
-        orderservice.cancel(orderservice.findById(orderId));
+        buyerService.cancelOrder(openid, orderId);
 
         return ResultVOUtil.success();
     }

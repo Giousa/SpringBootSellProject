@@ -11,7 +11,7 @@ import org.springframework.data.domain.Pageable;
  * Date:2018/10/5
  * Email:65489469@qq.com
  */
-public interface Orderservice {
+public interface OrderService {
 
     OrderDTO create(OrderDTO orderDTO);
 
